@@ -66,3 +66,9 @@ group :test do
 end
 
 gem "devise", "~> 5.0"
+
+group :development do
+  gem "rb-readline"
+  gem "guard"
+  gem "guard-minitest"
+end
