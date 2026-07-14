@@ -6,5 +6,7 @@ class CreateFollows < ActiveRecord::Migration[8.1]
 
       t.timestamps
     end
+
+    add_index :follows, [ :follower_id, :following_id ], unique: true
   end
 end

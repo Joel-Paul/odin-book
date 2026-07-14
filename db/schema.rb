@@ -19,6 +19,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_08_014056) do
     t.bigint "follower_id", null: false
     t.bigint "following_id", null: false
     t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_follows_on_follower_id_and_following_id", unique: true
     t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
