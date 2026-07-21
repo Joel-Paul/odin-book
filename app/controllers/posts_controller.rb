@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.where(author: current_user).or(Post.where(author: current_user.following_users))
   end
 
   def edit
