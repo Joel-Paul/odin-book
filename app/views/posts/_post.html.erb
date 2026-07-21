@@ -1,0 +1,14 @@
+<div class="post">
+  <div class="author">
+    <strong><%= post.author.username %></strong>
+    <% follow = Follow.find_by(follower: current_user, following: post.author) %>
+    <% if follow %>
+      <%= button_to "Unfollow", follow, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+    <% elsif current_user != post.author %>
+      <%= button_to "Follow", follows_url, params: {following: post.author} %>
+    <% end %>
+  </div>
+  <div class="content">
+    <%= post.content %>
+  </div>
+</div>

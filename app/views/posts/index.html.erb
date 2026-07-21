@@ -4,13 +4,6 @@
 
 <div>
   <% @posts.each do |post| %>
-    <div class="post">
-      <div class="author">
-        <%= post.author.username %>:
-      </div>
-      <div class="content">
-        <%= post.content %>
-      </div>
-    </div>
+    <%= render "post", post: post %>
   <% end %>
 </div>
