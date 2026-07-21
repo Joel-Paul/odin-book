@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new post_params
+    @post = current_user.posts.build post_params
     if @post.save
       redirect_to @post
     else
@@ -45,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.expect(post: [ :author, :content ])
+    params.expect(post: [ :content ])
   end
 end

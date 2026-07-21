@@ -1,1 +1,16 @@
 <h1>Posts</h1>
+
+<%= link_to "New post", new_post_path %>
+
+<div>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="author">
+        <%= post.author.username %>:
+      </div>
+      <div class="content">
+        <%= post.content %>
+      </div>
+    </div>
+  <% end %>
+</div>

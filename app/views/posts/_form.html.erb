@@ -1,0 +1,16 @@
+<ul>
+<% @post.errors.full_messages.each do |msg| %>
+  <li>
+    <%= msg %>
+  </li>
+<% end %>
+</ul>
+
+<%= form_with model: post do |f| %>
+  <div>
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

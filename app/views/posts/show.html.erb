@@ -1,0 +1,10 @@
+<h1>Post</h1>
+
+<div>
+  <%= @post.content %>
+</div>
+
+<%= link_to "All posts", posts_path %>
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= button_to "Delete", @post, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+
