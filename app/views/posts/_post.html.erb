@@ -8,7 +8,13 @@
     <% elsif current_user != post.author %>
       <%= button_to "Follow", follows_url, params: { following_id: post.author.id } %>
     <% end %>
+  </div>
 
+  <div class="content">
+    <%= post.content %>
+  </div>
+
+  <div class="reactions">
     <%= post.likes.count %> likes
     <% like = Like.find_by(user: current_user, post: post) %>
     <% if like %>
@@ -16,10 +22,5 @@
     <% else %>
       <%= button_to "Like", likes_url, params: { post_id: post.id } %>
     <% end %>
-
-  </div>
-
-  <div class="content">
-    <%= post.content %>
   </div>
 </div>
