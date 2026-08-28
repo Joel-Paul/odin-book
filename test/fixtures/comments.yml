@@ -7,5 +7,10 @@ one:
 
 two:
   user: foo
+  commentable: two
+  commentable_type: Post
+
+three:
+  user: bar
   commentable: one
   commentable_type: Comment
