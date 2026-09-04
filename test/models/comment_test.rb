@@ -62,4 +62,14 @@ class CommentTest < ActiveSupport::TestCase
     post = Post.find_by(author: bar)
     assert_equal(1, post.comments.count)
   end
+
+  test "should find that Foo has 2 comments" do
+    foo = User.find_by(username: "Foo")
+    assert_equal(2, foo.comments.count)
+  end
+
+  test "should find that Bar has 1 comment" do
+    bar = User.find_by(username: "Bar")
+    assert_equal(1, bar.comments.count)
+  end
 end
