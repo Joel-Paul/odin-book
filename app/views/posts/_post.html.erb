@@ -14,13 +14,27 @@
     <%= post.content %>
   </div>
 
-  <div class="reactions">
+  <div class="likes">
     <%= post.likes.count %> likes
     <% like = Like.find_by(user: current_user, post: post) %>
     <% if like %>
       <%= button_to "Unlike", like, method: :delete %>
     <% else %>
       <%= button_to "Like", likes_url, params: { post_id: post.id } %>
+    <% end %>
+  </div>
+  
+  <div class="comments">
+    <%= post.comments.count %> comments
+
+    <%= form_with url: comments_url do |f| %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <div>
+        <%= f.text_field :content %>
+      </div>
+      <div>
+        <%= f.submit "Comment" %>
+      </div>
     <% end %>
   </div>
 </div>
