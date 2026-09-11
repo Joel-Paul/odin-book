@@ -27,8 +27,13 @@
   <div class="comments">
     <%= post.comments.count %> comments
 
+    <% post.comments.each do | comment | %>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+
     <%= form_with url: comments_url do |f| %>
-      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.hidden_field :commentable_type, value: post.class.name %>
+      <%= f.hidden_field :commentable_id, value: post.id %>
       <div>
         <%= f.text_field :content %>
       </div>
