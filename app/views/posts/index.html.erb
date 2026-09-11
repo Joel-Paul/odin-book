@@ -3,7 +3,7 @@
 <%= link_to "New post", new_post_path %>
 
 <div>
-  <% @posts.each do |post| %>
+  <% @posts.each do | post | %>
     <br>
     <%= render "post", post: post %>
   <% end %>
