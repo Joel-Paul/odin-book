@@ -15,13 +15,6 @@ diana = User.create!(username: "Diana", email: "diana@example.com", password: "1
 etho = User.create!(username: "Etho", email: "etho@example.com", password: "123456")
 fiona = User.create!(username: "Fiona", email: "fiona@example.com", password: "123456")
 
-Post.create!(author: alice, content: "What a wonderful land!")
-Post.create!(author: bob, content: "I hope I pass the Kerman line")
-Post.create!(author: charlie, content: "My name is charlie the second")
-Post.create!(author: diana, content: "(I am actually a tree of silver)")
-Post.create!(author: etho, content: "Grab your snacks!")
-Post.create!(author: fiona, content: "its all ogre...")
-
 Follow.create!(follower: alice, following: bob)
 Follow.create!(follower: alice, following: charlie)
 Follow.create!(follower: alice, following: etho)
@@ -45,3 +38,12 @@ Follow.create!(follower: fiona, following: bob)
 Follow.create!(follower: fiona, following: charlie)
 Follow.create!(follower: fiona, following: diana)
 Follow.create!(follower: fiona, following: etho)
+
+pa = Post.create!(author: alice, content: "What a wonderful land!")
+pb = Post.create!(author: bob, content: "I hope I pass the Kerman line")
+pc = Post.create!(author: charlie, content: "My name is charlie the second")
+pd = Post.create!(author: diana, content: "(I am actually a tree of silver)")
+pe = Post.create!(author: etho, content: "Grab your snacks!")
+pf = Post.create!(author: fiona, content: "its all ogre...")
+
+Comment.create!(user: alice, commentable: pb, content: "This is a comment!")
